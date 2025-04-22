@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GDA Opening Transition</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #0f0f0f;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .gda-container {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 5rem;
+      color: #00ffcc;
+      animation: fadeInScale 2s ease-in-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes fadeInScale {
+      0% {
+        opacity: 0;
+        transform: scale(0.5) rotateX(90deg);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.1) rotateX(0deg);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .fade-out {
+      animation: fadeOut 1s forwards;
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="gda-container" id="gda">GDA</div>
+
+  <script>
+    setTimeout(() => {
+      const gda = document.getElementById('gda');
+      gda.classList.add('fade-out');
+      setTimeout(() => {
+        window.location.href = '/home';
+      }, 1000);
+    }, 3000);
+  </script>
+
+</body>
+</html>
